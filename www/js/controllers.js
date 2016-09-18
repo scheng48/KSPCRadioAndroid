@@ -25,4 +25,6 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
-});
+})
+
+.controller('FavoritesCtrl', function($scope) {});
