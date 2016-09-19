@@ -60,6 +60,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+  .state('tab.playlist-detail', {
+      url: '/playlist/:itemId',
+      views: {
+        'tab-playlist-detail': {
+          templateUrl: 'templates/playlist-detail.html',
+          controller: 'PlaylistDetailCtrl'
+        }
+      }
+    })
+
   .state('tab.search ', {
     url: '/search',
     views: {

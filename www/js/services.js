@@ -47,4 +47,54 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+// fake testing data for playlists
+.factory('Items', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var items = [{
+    id: 0,
+    song: 'a Brand New Day',
+    artist: 'V/A',
+    art: 'img/ben.png',
+  }, {
+    id: 1,
+    song: 'The Seasons Die One After Another',
+    artist: 'amazarashi',
+    art: 'img/ben.png'
+  }, {
+    id: 2,
+    song: 'First Family on the Moon - Side 1',
+    artist: 'The Jetsons',
+    art: 'img/ben.png'
+  }, {
+    id: 3,
+    song: 'My Funny Valentine',
+    artist: 'Brook Benton',
+    art: 'img/ben.png'
+  }, {
+    id: 4,
+    song: 'Bub',
+    artist: 'Majestic',
+    art: 'img/ben.png'
+  }];
+
+  return {
+    all: function() {
+      return items;
+    },
+    remove: function(item) {
+      items.splice(items.indexOf(item), 1);
+    },
+    get: function(itemId) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].id === parseInt(itemId)) {
+          return items[i];
+        }
+      }
+      return null;
+    }
+  };
 });
