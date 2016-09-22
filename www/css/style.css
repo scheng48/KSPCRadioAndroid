@@ -1,14 +1,43 @@
 /* Empty. Add your own CSS if you like */
 
 /* Dashboard/Landing Screen Customization */
+
+.stream-info {
+	margin: 0 auto;
+}
+
+.album-art {
+	padding: 10px;
+	width: 100%;
+}
+
+.album-info {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.radio-player {
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+
+}
+
+.radio-player button {
+	margin-right: 10px;
+	margin-left: 10px;
+	border: none;
+	background-color: #fff;
+}
+
 .playPause {
 	border-radius: 50%;
 	border-style: none;
 	padding: 10px 25px;
-	background-color: rgb(100,100,100);
+	/* background-color: rgb(100,100,100); overwritten by radio-player button rn */
 }
 
-.playPause i {
+.radio-player button i {
 	font-size: 40px;
-	color: rgb(235,235,235);
+	color: rgb(100,100,100);
 }

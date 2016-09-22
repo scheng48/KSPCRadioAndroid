@@ -1,10 +1,22 @@
 <ion-view view-title="KSPC 88.7FM">
   <ion-content class="padding">
-    <!-- Radio player -->
-    <audio autoplay id="livestream">
-      <source src="http://37.187.79.93:8419/stream192" type="audio/mpeg"/>
-    </audio>
-    <button ng-click="playPause()" id="play-pause" class="playPause"><i class="icon icon ion-ios-pause"></i></button>
-    <button id="dj-info">DJ Info</button>
+    <div class="stream-info">
+      <!-- Album art and info-->
+      <img src="img/ben.png" class="album-art"/>
+      <div class="album-info">
+        <h3>Ben Song</h3>
+        <p>By Ben</p>
+        <h4>DJ FunkyAndroid </h4>
+    </div>
+
+    <div class="radio-player">
+      <!-- Radio player -->
+      <audio autoplay id="livestream">
+        <source src="http://37.187.79.93:8419/stream192" type="audio/mpeg"/>
+      </audio>
+      <button id="chatroom"><i class="icon ion ion-ios-chatbubble-outline"></i></button>
+      <button ng-click="playPause()" id="play-pause" class="playPause"><i class="icon ion ion-ios-pause"></i></button>
+      <button id="dj-info">DJ Info</button>
+    </div>
   </ion-content>
 </ion-view>
