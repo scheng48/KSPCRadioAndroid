@@ -13,6 +13,8 @@ angular.module('starter.controllers', [])
     }
 })
 
+.controller('DJProfileDetailCtrl', function($scope) {})
+
 .controller('PlaylistCtrl', function($scope, Items) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -23,9 +25,9 @@ angular.module('starter.controllers', [])
   //});
 
   $scope.items = Items.all();
-  $scope.remove = function(item) {
-    Items.remove(item);
-  };
+  // $scope.remove = function(item) {
+  //   Items.remove(item);
+  // };
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
