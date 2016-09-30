@@ -11,6 +11,7 @@ angular.module('starter.controllers', [])
           document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-ios-play"></i>';
         }
     }
+
 })
 
 .controller('DJProfileDetailCtrl', function($scope) {})
