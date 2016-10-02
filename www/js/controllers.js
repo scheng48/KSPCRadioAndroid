@@ -12,6 +12,10 @@ angular.module('starter.controllers', [])
         }
     }
 
+    $scope.init = function() {
+        callSpinPapi();
+    }
+
 })
 
 .controller('DJProfileDetailCtrl', function($scope) {})

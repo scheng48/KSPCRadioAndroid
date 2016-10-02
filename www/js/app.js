@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('tab.djprofile-detail', {
-      url: '/profile/DJFunkyAndroid',
+      url: '/profile',
       views: {
         'djprofile-detail': {
           templateUrl: 'templates/djprofile-detail.html',
