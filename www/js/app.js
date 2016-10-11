@@ -51,14 +51,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('tab.djprofile-detail', {
-      url: '/profile',
-      views: {
-        'djprofile-detail': {
-          templateUrl: 'templates/djprofile-detail.html',
-          controller: 'DJProfileDetailCtrl'
-        }
+    url: '/djprofile-detail',
+    views: {
+      'tab-djprofile-detail': {
+        templateUrl: 'templates/djprofile-detail.html',
+        controller: 'DJProfileDetailCtrl'
       }
-    })
+    }
+  })
 
   .state('tab.playlist', {
       url: '/playlist',
@@ -71,14 +71,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
   .state('tab.playlist-detail', {
-      url: '/playlist/:itemId',
-      views: {
-        'tab-playlist-detail': {
-          templateUrl: 'templates/playlist-detail.html',
-          controller: 'PlaylistDetailCtrl'
-        }
+    url: '/playlist/:itemId',
+    views: {
+      'tab-playlist-detail': {
+        templateUrl: 'templates/playlist-detail.html',
+        controller: 'PlaylistDetailCtrl'
       }
-    })
+    }
+  })
+
+  .state('tab.chats', {
+    url: '/chats',
+    views: {
+      'tab-chats': {
+        templateUrl: 'templates/tab-chats.html',
+        controller: 'ChatsCtrl'
+      }
+    }
+  })
+
+  .state('tab.chat-detail', {
+    url: '/chats/:chatId',
+    views: {
+      'tab-chats': {
+        templateUrl: 'templates/chat-detail.html',
+        controller: 'ChatDetailCtrl'
+      }
+    }
+  })
 
   .state('tab.search ', {
     url: '/search',

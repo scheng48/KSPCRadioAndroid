@@ -6,21 +6,23 @@
 	margin: 0 auto;
 }
 
-.album-art {
-	padding: 10px;
-	width: 100%;
-}
-
 .album-info {
 	text-align: center;
 	margin: 0 auto;
+	padding-top: 50px;
+	height: 90%;
 }
 
 .radio-player {
 	margin: 0 auto;
 	width: 100%;
 	text-align: center;
+	float: bottom;
+}
 
+.bottom-button-bar {
+	bottom: 0;
+	position: absolute;
 }
 
 .radio-player button {
@@ -31,6 +33,7 @@
 }
 
 .playPause {
+	float: bottom;
 	border-radius: 50%;
 	border-style: none;
 	padding: 10px 25px;

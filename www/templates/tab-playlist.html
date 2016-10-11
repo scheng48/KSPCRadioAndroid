@@ -1,10 +1,19 @@
 <ion-view view-title="Playlist">
   <ion-content>
+    <div class="button-bar">
+      <a class="button">Recently Played</a>
+      <a class="button">Upcoming</a>
+    </div>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="#/tab/playlist/{{item.id}}">
         <img ng-src="{{item.art}}">
         <h2>{{item.song}}</h2>
         <p>{{item.artist}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(item)">
+          Delete
+        </ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>
