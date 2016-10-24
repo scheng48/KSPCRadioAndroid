@@ -50,8 +50,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.djprofile-detail', {
-    url: '/djprofile-detail',
+  .state('tab.dash.djprofile-detail', {
+    url: '/dash/djprofile-detail',
     views: {
       'tab-djprofile-detail': {
         templateUrl: 'templates/djprofile-detail.html',

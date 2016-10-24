@@ -49,6 +49,24 @@ angular.module('starter.services', [])
   };
 })
 
+// .factory('RecentTen', function() {
+//     var recentTen;
+//     return {
+//         all: function() {
+//             spinitron.getSongs({ When: 'now', Num: 5}, function (error, response) { 
+//                 console.log(response.results);  
+//                 return response.results;
+//             });
+//         },
+//         get: function(num) {
+//             spinitron.getSongs({ When: 'now', Num: 5}, function (error, response) {   
+//                 recentTen = response.results;
+//                 return recentTen[num];
+//             });
+//         }
+//     }
+// })
+
 // fake testing data for playlists
 .factory('Items', function() {
   // Might use a resource here that returns a JSON array
@@ -98,3 +116,6 @@ angular.module('starter.services', [])
     }
   };
 });
+
+
+

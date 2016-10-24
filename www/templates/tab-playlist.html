@@ -1,20 +1,44 @@
 <ion-view view-title="Playlist">
-  <ion-content>
-    <div class="button-bar">
-      <a class="button">Recently Played</a>
-      <a class="button">Upcoming</a>
+  <ion-content class="has-header">
+    <div class="bar bar-dark">
+      <h1 class="title">Recently Played</h1>
     </div>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="#/tab/playlist/{{item.id}}">
-        <img ng-src="{{item.art}}">
-        <h2>{{item.song}}</h2>
-        <p>{{item.artist}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(item)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+    <div>
+      <ion-list>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
+          <h2 id="title0"></h2>
+          <p id="artist0"></p>
+          <p id="album0"></p>
+          <p id="timestamp0"></p>
+        </ion-item>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
+          <h2 id="title1">Loading...</h2>
+          <p id="artist1"></p>
+          <p id="album1"></p>
+          <p id="timestamp1"></p>
+        </ion-item>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
+          <h2 id="title2"></h2>
+          <p id="artist2"></p>
+          <p id="album2"></p>
+          <p id="timestamp2"></p>
+        </ion-item>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
+          <h2 id="title3"></h2>
+          <p id="artist3"></p>
+          <p id="album3"></p>
+          <p id="timestamp3"></p>
+        </ion-item>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
+          <h2 id="title4"></h2>
+          <p id="artist4"></p>
+          <p id="album4"></p>
+          <p id="timestamp4"></p>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="bar bar-dark">
+      <h1 class="title">Upcoming Programs</h1>
+    </div>
   </ion-content>
 </ion-view>
