@@ -67,6 +67,25 @@ angular.module('starter.services', [])
 //     }
 // })
 
+.factory('Shows', function (spinitron) {
+    return {
+      all: function() {
+        spinitron.getRegularShowsInfo({ When: 'now', Num: 5 }, function (error, response) {
+          console.log(response.results);
+          return response.results; // sort by string of timestamp start?
+        });
+      },
+      get: function(num) {
+        spinitron.getRegularShowsInfo({ When: 'today'}, function (error, response) {
+          console.log(response.results);
+          return response.results[num];
+        });
+      }
+    }
+})
+
+
+
 // fake testing data for playlists
 .factory('Items', function() {
   // Might use a resource here that returns a JSON array
