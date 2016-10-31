@@ -1,6 +1,6 @@
 <ion-view view-title="Playlist">
   <ion-content class="has-header">
-    <div class="list">
+    <div class="list" ng-init="getSchedule()">
       <div class="bar bar-dark item item-divider">
         <h1 class="title">Recently Played</h1>
       </div>
@@ -61,5 +61,6 @@
         </ion-list>
       </div>
     </div>
+    <div data-ng-controller="PlaylistCtrl" data-ng-init="init()"></div>
   </ion-content>
 </ion-view>
