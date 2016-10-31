@@ -28,9 +28,7 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   $scope.init = function() {
-      console.log("get schedule");
       getSchedule();
-      console.log("did it work");
   };
 })
 
