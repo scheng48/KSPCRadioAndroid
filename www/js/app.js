@@ -38,6 +38,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/tabs.html'
   })
 
+    .state('djprofile', {
+    url: '/djprofile', 
+    abstract: true, 
+    templateUrl: 'templates/djprofile.html'
+  })
+
+    .state('chatroom', {
+    url: '/chatroom', 
+    abstract: true, 
+    templateUrl: 'templates/chatroom.html'
+  })
+
   // Each tab has its own nav history stack:
 
   .state('tab.dash', {
@@ -50,12 +62,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('button.djprofile', {
-    url: '/djprofile',
+  .state('djprofile.djprofile-detail', {
+    url: '/djprofile-detail',
     views: {
-      'button-djprofile': {
+      'djprofile-djprofile-detail': {
         templateUrl: 'templates/djprofile-detail.html',
-        controller: 'DJProfileCtrl'
+        controller: 'DJProfileDetailCtrl'
       }
     }
   })
