@@ -1,0 +1,19 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  <!-- Dashboard Tab -->
+  <ion-tab title="Now Playing" icon-off="ion-radio-waves" icon-on="ion-radio-waves" href="#/tab/dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
+  </ion-tab>
+
+  <!-- DJ Profile Tab -->
+  <ion-tab title="DJ Profile" icon-off="ion-radio-waves" icon-on="ion-radio-waves" href="#/djprofile/djprofile-detail">
+    <ion-nav-view name="djprofile-djprofile-detail"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>
