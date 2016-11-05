@@ -1,27 +1,29 @@
 <ion-view view-title="KSPC 88.7FM">
   <ion-content>
-    <div class="stream-info">
-      <!-- Album info-->
-      <div class="album-info">
-        <h3 id="titleNow"></h3>
-        <p id="artistNow"></p>
-        <h5 id="albumNow"></h5>
-        <h4 id="DJNameNow"></h4>
+    <div class="background">
+      <div class="stream-info">
+        <!-- Album info-->
+        <div class="album-info">
+          <h3 id="titleNow"></h3>
+          <p id="artistNow"></p>
+          <h5 id="albumNow"></h5>
+          <h4 id="DJNameNow"></h4>
+        </div>
       </div>
-    </div>
-    <div class="radio-player">
-        <!-- Radio player -->
-        <audio autoplay id="livestream">
-          <source src="http://37.187.79.93:8419/stream192" type="audio/mpeg"/>
-        </audio>
-        <button ng-click="playPause()" id="play-pause" class="playPause"><i class="icon ion ion-ios-pause"></i></button>
-    </div>
-    <div class="bar bottom-button-bar">
-      <div class="button-bar">
-        <a class="button icon-left ion-ios-chatbubble-outline button-clear button-dark">Chatroom</a>
-        <a class="button icon-left ion-mic-c button-clear button-dark" href="#/djprofile/djprofile-detail">DJ Profile</a>
+      <div class="radio-player">
+          <!-- Radio player -->
+          <audio autoplay id="livestream">
+            <source src="http://37.187.79.93:8419/stream192" type="audio/mpeg"/>
+          </audio>
+          <button ng-click="playPause()" id="play-pause" class="playPause"><i class="icon ion ion-ios-pause"></i></button>
       </div>
+      <div class="bar bottom-button-bar">
+        <div class="button-bar">
+          <a class="button icon-left ion-ios-chatbubble-outline button-clear button-dark">Chatroom</a>
+          <a class="button icon-left ion-mic-c button-clear button-dark" href="#/djprofile/djprofile-detail">DJ Profile</a>
+        </div>
+      </div>
+      <div data-ng-controller="DashCtrl" data-ng-init="init()"></div>
     </div>
-    <div data-ng-controller="DashCtrl" data-ng-init="init()"></div>
   </ion-content>
 </ion-view>
