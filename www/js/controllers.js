@@ -5,10 +5,10 @@ angular.module('starter.controllers', [])
     $scope.playPause = function() {
         if(livestream.paused) {
           livestream.play();
-          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-ios-pause"></i>';
+          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-ios-pause" style="color: white"></i>';
         } else {
           livestream.pause();
-          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-ios-play"></i>';
+          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-ios-play" style="color: white"></i>';
         }
     }
 
@@ -51,7 +51,7 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('SearchCtrl', function($scope) {
+.controller('DirectoryCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
   };

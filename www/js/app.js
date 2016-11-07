@@ -82,16 +82,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-  .state('tab.playlist-detail', {
-    url: '/playlist/:itemId',
-    views: {
-      'tab-playlist-detail': {
-        templateUrl: 'templates/playlist-detail.html',
-        controller: 'PlaylistDetailCtrl'
-      }
-    }
-  })
-
   .state('tab.chats', {
     url: '/chats',
     views: {
@@ -112,12 +102,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.search ', {
-    url: '/search',
+  .state('tab.directory ', {
+    url: '/directory',
     views: {
-      'tab-search': {
-        templateUrl: 'templates/tab-search.html',
-        controller: 'SearchCtrl'
+      'tab-directory': {
+        templateUrl: 'templates/tab-directory.html',
+        controller: 'DirectoryCtrl'
       }
     }
   })
