@@ -1,5 +1,6 @@
 <ion-view view-title="KSPC 88.7FM">
   <ion-content class="background">
+  <div data-ng-controller="DashCtrl" data-ng-init="init()">
       <div class="stream-info">
         <!-- Album info-->
         <div class="album-info">
@@ -20,6 +21,9 @@
             <a class="button icon-left ion-mic-c button-clear button-dark" href="#/djprofile/djprofile-detail">DJ Profile</a>
           </div>
       </div>
-      <div data-ng-controller="DashCtrl" data-ng-init="init()"></div>
+      </div>
+      <div ng-controller = "SocialMedia">
+        <button class="button" ng-click="shareFacebook()">Share on Facebook</button>
+      </div>
   </ion-content>
 </ion-view>
