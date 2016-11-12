@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+var ionicApp = angular.module('starter.controllers', ['ngCordova']);
 
-.controller('DashCtrl', function($scope) {
+ionicApp.controller('DashCtrl', function($scope) {
     $scope.livestream = document.getElementById("livestream");
     $scope.playPause = function() {
         if(livestream.paused) {
@@ -17,9 +17,9 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('DJProfileDetailCtrl', function($scope) {})
+ionicApp.controller('DJProfileDetailCtrl', function($scope) {})
 
-.controller('PlaylistCtrl', function($scope) {
+ionicApp.controller('PlaylistCtrl', function($scope) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
+ionicApp.controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -47,14 +47,40 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+ionicApp.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('DirectoryCtrl', function($scope) {
+ionicApp.controller('DirectoryCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
   };
 })
 
-.controller('FavoritesCtrl', function($scope) {});
+ionicApp.controller('FavoritesCtrl', function($scope) {});
+
+ionicApp.controller("SocialMedia", function($scope, $cordovaSocialSharing) {
+
+    // $scope.shareFacebook = function() {
+    //   console.log('meow');
+    //   window.plugins.socialsharing.shareViaFacebook("This is your message", "This is your subject", "www/imagefile.png", "https://www.thepolyglotdeveloper.com");
+    // }
+
+    $scope.shareFacebook = function() {
+
+      if(window.plugins) {
+        $ionicPlatform.ready(function() {
+        $cordovaSocialSharing.shareViaFacebook('sharedMsg', "", "")
+            .then(function(result) {
+            }, function(err) {
+                // An error occurred. Show a message to the user
+                alert("error : "+err);
+            });
+        });
+      }
+      console.log('hi');
+    };
+ 
+});
+
+
