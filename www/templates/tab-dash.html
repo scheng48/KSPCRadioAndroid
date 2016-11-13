@@ -17,13 +17,16 @@
           </audio>
           <button ng-click="playPause()" id="play-pause" class="playPause"><i class="icon ion ion-ios-pause" style="color: white"></i></button>
           <div>
-            <a class="button icon-left ion-ios-chatbubble-outline button-clear button-dark">Chatroom</a>
+            <a class="button icon-left ion-ios-chatbubble-outline button-clear button-dark" href="#" onclick="window.open('http://spinitron.com/radio/playlist.php?station=kspc#main', '_system', 'location=yes'); return false;">Chatroom</a>
             <a class="button icon-left ion-mic-c button-clear button-dark" href="#/djprofile/djprofile-detail">DJ Profile</a>
           </div>
       </div>
       </div>
       <div ng-controller = "SocialMedia">
-        <button class="button" ng-click="shareFacebook()">Share on Facebook</button>
+        <button class="button" ng-click="shareFacebook()">Share</button>
+        <button class="button" ng-click="openFacebook()" style="background-color: #3b5998;"><i class="icon ion ion-social-facebook" style="color: white"></i></button>
+        <button class="button" href="#" ng-click="openTwitter()"><i class="icon ion ion-social-twitter" style="color: #4099ff"></i></button>
+        <button class="button instagram-button" ng-click="openInsta()"><i class="icon ion ion-social-instagram" style="color: white"></i></button>
       </div>
   </ion-content>
 </ion-view>
