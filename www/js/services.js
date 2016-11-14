@@ -18,6 +18,22 @@ function DirectoryService($q) {
   function initDB() {
     // Creates the database or opens it if it already exists
     _db = new PouchDB('shows');
+    // TODO: use actual key and password
+    var username = 'API KEY';
+    var password = 'API PASSWORD';
+    var remote = 'https://66e6d49c-59f9-40b7-b52b-2874ff4f02f6-bluemix.cloudant.com/shows';
+
+    var options = {
+      live: true,
+      retry: true,
+      continuous: true,
+      auth: {
+        username: username,
+        password: password
+      }
+    };
+
+    _db.sync(remote, options);
   };
 
   function addShow(show) {
