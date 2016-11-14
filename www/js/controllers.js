@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, DirectoryService) {
     $scope.livestream = document.getElementById("livestream");
     $scope.playPause = function() {
         if(livestream.paused) {
@@ -14,12 +14,13 @@ angular.module('starter.controllers', [])
 
     $scope.init = function() {
         callSpinPapi();
+        // DirectoryService.addShow({"test": "asdfasdf"});
     }
 })
 
 .controller('DJProfileDetailCtrl', function($scope) {})
 
-.controller('PlaylistCtrl', function($scope) {
+.controller('PlaylistCtrl', function($scope, DirectoryService) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -28,7 +29,8 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   $scope.init = function() {
-      getSchedule();
+      getSchedule(DirectoryService);
+
   };
 })
 

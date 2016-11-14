@@ -1,140 +1,79 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
+.factory('DirectoryService', ['$q', DirectoryService]);
 
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
+function DirectoryService($q) {
+  var _db;
+  var _shows;
 
   return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
+    initDB: initDB,
+
+    getAllShows: getAllShows,
+    addShow: addShow,
+    updateShow: updateShow,
+    deleteShow: deleteShow
+  };
+
+  function initDB() {
+    // Creates the database or opens it if it already exists
+    _db = new PouchDB('shows');
+  };
+
+  function addShow(show) {
+    return $q.when(_db.post(show));
+  };
+
+  function updateShow(show) {
+    return $q.when(_db.put(show));
+  };
+
+  function deleteShow(show) {
+    return $q.when(_db.remove(show));
+  };
+
+  function getAllShows() {
+    if (!_shows) {
+      return $q.when(_db.allDocs({include_docs: true})).then(function(docs) {
+
+        _shows = docs.rows
+
+        // Listen for changes on the database
+        _db.changes({live:true, since: 'now', include_docs: true})
+          .on('change', onDatabaseChange);
+
+        return _shows;
+      });
+    } else {
+      return $q.when(_shows);
     }
   };
-})
 
-// .factory('RecentTen', function() {
-//     var recentTen;
-//     return {
-//         all: function() {
-//             spinitron.getSongs({ When: 'now', Num: 5}, function (error, response) { 
-//                 console.log(response.results);  
-//                 return response.results;
-//             });
-//         },
-//         get: function(num) {
-//             spinitron.getSongs({ When: 'now', Num: 5}, function (error, response) {   
-//                 recentTen = response.results;
-//                 return recentTen[num];
-//             });
-//         }
-//     }
-// })
+  function onDatabaseChange(change) {
+    var index = findIndex(_shows, change.id);
+    var show = _shows[index];
 
-.factory('Shows', function (spinitron) {
-    return {
-      all: function() {
-        spinitron.getRegularShowsInfo({ When: 'now', Num: 5 }, function (error, response) {
-          console.log(response.results);
-          return response.results; // sort by string of timestamp start?
-        });
-      },
-      get: function(num) {
-        spinitron.getRegularShowsInfo({ When: 'today'}, function (error, response) {
-          console.log(response.results);
-          return response.results[num];
-        });
+    if (change.deleted) {
+      if (show) {
+        _shows.splice(index, 1);
       }
-    }
-})
-
-
-
-// fake testing data for playlists
-.factory('Items', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var items = [{
-    id: 0,
-    song: 'a Brand New Day',
-    artist: 'V/A',
-    art: 'img/ben.png',
-  }, {
-    id: 1,
-    song: 'The Seasons Die One After Another',
-    artist: 'amazarashi',
-    art: 'img/ben.png'
-  }, {
-    id: 2,
-    song: 'First Family on the Moon - Side 1',
-    artist: 'The Jetsons',
-    art: 'img/ben.png'
-  }, {
-    id: 3,
-    song: 'My Funny Valentine',
-    artist: 'Brook Benton',
-    art: 'img/ben.png'
-  }, {
-    id: 4,
-    song: 'Bub',
-    artist: 'Majestic',
-    art: 'img/ben.png'
-  }];
-
-  return {
-    all: function() {
-      return items;
-    },
-    remove: function(item) {
-      items.splice(items.indexOf(item), 1);
-    },
-    get: function(itemId) {
-      for (var i = 0; i < items.length; i++) {
-        if (items[i].id === parseInt(itemId)) {
-          return items[i];
-        }
+    } else {
+      if (shows && show._id == change.id) {
+        _shows[index] = change.doc;
+      } else {
+        _shows.splice(index, 0, change.doc);
       }
-      return null;
     }
   };
-});
 
+  function findIndex(array, id) {
+    var low = 0, high = array.length, mid;
 
+    while (low < high) {
+      mid = (low + high) >>> 1;
+      array[mid]._id < id ? low = mid + 1 : high = mid
+    }
 
+    return low;
+  };
+}
