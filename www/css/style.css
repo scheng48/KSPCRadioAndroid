@@ -2,6 +2,14 @@
 
 /* Dashboard/Landing Screen Customization */
 
+.background {
+	background: url(../img/stars.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	/* opacity: 0.5; */
+	height: 100%;
+}
+
 .stream-info {
 	margin: 0 auto;
 }
@@ -13,6 +21,10 @@
 	height: 90%;
 }
 
+.album-info h3,h4,h5,p{
+	color: white;
+}
+
 .radio-player {
 	margin: 0 auto;
 	width: 100%;
@@ -20,27 +32,41 @@
 	float: bottom;
 }
 
-.bottom-button-bar {
-	bottom: 0;
-	position: absolute;
-}
-
 .radio-player button {
 	margin-right: 10px;
 	margin-left: 10px;
 	border: none;
-	background-color: #fff;
+	background-color: transparent;
+	color: #fff;
 }
 
 .playPause {
 	float: bottom;
-	border-radius: 50%;
-	border-style: none;
+/*	border-radius: 50%;
+	border-style: none;*/
 	padding: 10px 25px;
-	/* background-color: rgb(100,100,100); overwritten by radio-player button rn */
 }
 
 .radio-player button i {
 	font-size: 40px;
 	color: rgb(100,100,100);
+	background-color: rgba(100,100,100, 0);
+}
+
+.instagram-button {
+	background: -webkit-gradient(linear, left top, left bottom, from(#4c5fd7), to(#d62990));
+}
+
+/* Playlist/Schedule tab customization */
+
+.playlist-item {
+	background-color: rgb(120,120,120);
+}
+
+.playlist-item h2{
+	color: white;
+}
+
+.playlist-item p {
+	color: rgb(235,235,235);
 }

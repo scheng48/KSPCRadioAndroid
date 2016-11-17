@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform, DirectoryService) {
   $ionicPlatform.ready(function() {
@@ -44,6 +44,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/tabs.html'
   })
 
+  .state('djprofile', {
+    url: '/djprofile',
+    abstract: true,
+    templateUrl: 'templates/djprofile.html'
+  })
+
+  .state('chatroom', {
+    url: '/chatroom',
+    abstract: true,
+    templateUrl: 'templates/chatroom.html'
+  })
+
   // Each tab has its own nav history stack:
 
   .state('tab.dash', {
@@ -56,12 +68,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('button.djprofile', {
-    url: '/djprofile',
+  .state('djprofile.djprofile-detail', {
+    url: '/djprofile-detail',
     views: {
-      'button-djprofile': {
+      'djprofile-djprofile-detail': {
         templateUrl: 'templates/djprofile-detail.html',
-        controller: 'DJProfileCtrl'
+        controller: 'DJProfileDetailCtrl'
       }
     }
   })
@@ -75,16 +87,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-
-  .state('tab.playlist-detail', {
-    url: '/playlist/:itemId',
-    views: {
-      'tab-playlist-detail': {
-        templateUrl: 'templates/playlist-detail.html',
-        controller: 'PlaylistDetailCtrl'
-      }
-    }
-  })
 
   .state('tab.chats', {
     url: '/chats',
@@ -106,12 +108,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.search ', {
-    url: '/search',
+  .state('tab.directory ', {
+    url: '/directory',
     views: {
-      'tab-search': {
-        templateUrl: 'templates/tab-search.html',
-        controller: 'SearchCtrl'
+      'tab-directory': {
+        templateUrl: 'templates/tab-directory.html',
+        controller: 'DirectoryCtrl'
       }
     }
   })
