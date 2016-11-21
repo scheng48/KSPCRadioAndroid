@@ -73,19 +73,71 @@
 }
 
 .social-media {
-	padding-bottom: 15%;
+	padding-bottom: 20%;
 }
 
 /* Playlist/Schedule tab customization */
-
-.playlist-item {
+.playlist-item-5{
 	background-color: rgb(120,120,120);	
+	background-image: url("http://www.stern-fan.de/Bilder/Internet/IC1805-Detail.jpg");
+}
+
+.playlist-item-6{
+	background-image: url("http://www.goodwp.com/images/201104/goodwp.com_17413.jpg");
+}
+
+.playlist-item-3 {
+	background-color: rgb(120,120,120);	
+	background-image: url("http://wallpaperxyz.com/wp-content/uploads/Best-HD-Desktop-Wallpapers-High-Quality-Resolutions-Wallpaperxyz-dot-Com-1.png");
+}
+
+.playlist-item-1 {
+	background-color: rgb(120,120,120);	
+	background-image: url("http://blog.spoongraphics.co.uk/wp-content/uploads/2013/10/Untitled-11.jpg");
+}
+
+.playlist-item-2 {
+	background-color: rgb(120,120,120);	
+	background-image: url("http://il6.picdn.net/shutterstock/videos/12914339/thumb/4.jpg");
+}
+
+.playlist-item-4 {
+	background-color: rgb(120,120,120);	
+	background-image: url("http://im05.thewallpapers.org/photo/21850/In-The-Space.jpg");
+}
+
+.playlist-item-0 {
+	background-color: rgb(120,120,120);	
+	background-image: url("http://www.emanueleferonato.com/images/space1.jpg");
 }
 
 .playlist-item h2{
 	color: white;
+	font-style: bold;
 }
 
+.playlist-item-0 p {
+	color: rgb(235,235,235);
+}
+.playlist-item-1 p {
+	color: rgb(235,235,235);
+}
+.playlist-item-2 p {
+	color: rgb(235,235,235);
+}
+.playlist-item-3 p {
+	color: rgb(235,235,235);
+}
+.playlist-item-4 p {
+	color: rgb(235,235,235);
+}
+
+.playlist-item-5 p {
+	color: rgb(235,235,235);
+}
+.playlist-item-6 p {
+	color: rgb(235,235,235);
+}
 .playlist-item p {
 	color: rgb(235,235,235);
 }
