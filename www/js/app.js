@@ -22,10 +22,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     }
 
     DirectoryService.initDB();
-
-    // DirectoryService.getAllShows().then(function(shows) {
-    //   console.log(shows);
-    // });
   });
 })
 

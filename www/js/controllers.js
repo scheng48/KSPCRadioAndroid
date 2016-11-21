@@ -1,26 +1,34 @@
 angular.module('starter.controllers', ['ngCordova'])
 
 .controller('DashCtrl', function($scope, DirectoryService) {
-    $scope.livestream = document.getElementById("livestream");
-    $scope.playPause = function() {
-        if(livestream.paused) {
-          livestream.play();
-          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-pause" style="color: white"></i>';
-        } else {
-          livestream.pause();
-          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-play" style="color: white"></i>';
-        }
+  $scope.livestream = document.getElementById("livestream");
+  $scope.playPause = function() {
+    if(livestream.paused) {
+      livestream.play();
+      document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-pause" style="color: white"></i>';
+    } else {
+      livestream.pause();
+      document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-play" style="color: white"></i>';
     }
+  }
 
-    $scope.init = function() {
-        callSpinPapi();
-        // DirectoryService.addShow({"test": "asdfasdf"});
-    }
+  $scope.init = function() {
+    callSpinPapi();
+    // DirectoryService.addShow(
+    //   {"showName": "test name3",
+    //   "DJName": "test DJ3",
+    //   "showCategory": "test category3",
+    //   "day": "test day3",
+    //   "onAirTime": "05:00:00",
+    //   "offAirTime": "07:00:00",
+    //   "showDescription": "test description3"}
+    // );
+  }
 })
 
 .controller('DJProfileDetailCtrl', function($scope) {})
 
-.controller('PlaylistCtrl', function($scope, DirectoryService) {
+.controller('PlaylistCtrl', function($scope) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -29,8 +37,7 @@ angular.module('starter.controllers', ['ngCordova'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   $scope.init = function() {
-      getSchedule(DirectoryService);
-
+    getSchedule();
   };
 })
 
@@ -53,20 +60,24 @@ angular.module('starter.controllers', ['ngCordova'])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('DirectoryCtrl', function($scope, Chats) {
-    $scope.chats = Chats.all();
+.controller('DirectoryCtrl', function($scope, DirectoryService) {
+
+  DirectoryService.getAllShows().then(function(shows) {
+    $scope.shows = shows
+    console.log(shows);
+  });
 
   //https://forum.ionicframework.com/t/accordion-list/2832/4
-    $scope.toggleGroup = function(group) {
-      if ($scope.isGroupShown(group)) {
-        $scope.shownGroup = null;
-      } else {
-        $scope.shownGroup = group;
-      }
-    };
-    $scope.isGroupShown = function(group) {
-      return $scope.shownGroup === group;
-     };
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
 })
 
 .controller('FavoritesCtrl', function($scope) {})
