@@ -63,9 +63,11 @@ angular.module('starter.controllers', ['ngCordova'])
 .controller('DirectoryCtrl', function($scope, DirectoryService) {
 
   DirectoryService.getAllShows().then(function(shows) {
-    $scope.shows = shows
-    console.log(shows);
+    $scope.shows = shows.sort(compareTime);
+    console.log($scope.shows);
   });
+
+  // getDaySchedule(DirectoryService, 2);
 
   //https://forum.ionicframework.com/t/accordion-list/2832/4
   $scope.toggleGroup = function(group) {
