@@ -5,10 +5,10 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.playPause = function() {
         if(livestream.paused) {
           livestream.play();
-          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-ios-pause" style="color: white"></i>';
+          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-pause" style="color: white"></i>';
         } else {
           livestream.pause();
-          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-ios-play" style="color: white"></i>';
+          document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-play" style="color: white"></i>';
         }
     }
 
@@ -53,39 +53,25 @@ angular.module('starter.controllers', ['ngCordova'])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('DirectoryCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('DirectoryCtrl', function($scope, Chats) {
+    $scope.chats = Chats.all();
+
+  //https://forum.ionicframework.com/t/accordion-list/2832/4
+    $scope.toggleGroup = function(group) {
+      if ($scope.isGroupShown(group)) {
+        $scope.shownGroup = null;
+      } else {
+        $scope.shownGroup = group;
+      }
+    };
+    $scope.isGroupShown = function(group) {
+      return $scope.shownGroup === group;
+     };
 })
 
 .controller('FavoritesCtrl', function($scope) {})
 
 .controller('SocialMedia', function($scope, $cordovaAppAvailability) {
-
-  /* check if Android or iOS */
-
-
-  // $scope.shareFacebook = function() {
-  //   console.log('meow');
-  //   window.plugins.socialsharing.shareViaFacebook("This is your message", "This is your subject", "www/imagefile.png", "https://www.thepolyglotdeveloper.com");
-  // }
-
-  // $scope.shareFacebook = function() {
-
-  //   if(window.plugins) {
-  //     $ionicPlatform.ready(function() {
-  //     $cordovaSocialSharing.shareViaFacebook('sharedMsg', "", "")
-  //         .then(function(result) {
-  //         }, function(err) {
-  //             // An error occurred. Show a message to the user
-  //             alert("error : "+err);
-  //         });
-  //     });
-  //   }
-  //   console.log('hi');
-  // };
-
 
   $scope.openFacebook = function() {
     // $cordovaAppAvailability.check("fb://").then(function() {

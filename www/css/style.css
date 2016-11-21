@@ -11,17 +11,21 @@
 }
 
 .stream-info {
-	margin: 0 auto;
+	padding-top: 10px;
 }
 
 .album-info {
 	text-align: center;
 	margin: 0 auto;
-	padding-top: 50px;
+	padding-top: 20px;
 	height: 90%;
 }
 
-.album-info h3,h4,h5,p{
+.centered {
+	margin: 0 auto;
+}
+
+.album-info h1,h2,h3,h4,h5,p{
 	color: white;
 }
 
@@ -30,6 +34,8 @@
 	width: 100%;
 	text-align: center;
 	float: bottom;
+	padding-bottom: 10%;
+	padding-top: 0%;
 }
 
 .radio-player button {
@@ -44,7 +50,7 @@
 	float: bottom;
 /*	border-radius: 50%;
 	border-style: none;*/
-	padding: 10px 25px;
+	padding: 0px 0px;
 }
 
 .radio-player button i {
@@ -55,6 +61,19 @@
 
 .instagram-button {
 	background: -webkit-gradient(linear, left top, left bottom, from(#4c5fd7), to(#d62990));
+}
+
+.social-button {
+	margin-left: 10px;
+}
+
+.button-right {
+	float: right;
+	margin-right: 10px;
+}
+
+.social-media {
+	padding-bottom: 15%;
 }
 
 /* Playlist/Schedule tab customization */
@@ -69,4 +88,26 @@
 
 .playlist-item p {
 	color: rgb(235,235,235);
+}
+
+/*
+ * Customization for Directory page accordion items
+ *
+ */
+
+/*
+ * http://docs.angularjs.org/api/ng/directive/ngShow#usage_animations
+ */
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
 }
