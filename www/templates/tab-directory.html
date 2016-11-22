@@ -1,17 +1,11 @@
 <ion-view view-title="DJ Directory">
-	<ion-content>
-		<ion-list>
-        <div ng-repeat="chat in chats">
-          <ion-item class="item-stable" style="background-color: rgb(50,50,50)"  ng-class="{active: isGroupShown(chat)}">
-            <h2>{{chat.name}}</h2>
-          </ion-item>
-          <ion-item class="item-accordion playlist-item item-text-wrap" ng-show="isGroupShown(group)">
-            <p style="color: white; line-height: 20px">{{chat.show}}</p>
-            <p style="color: white; line-height: 20px">{{chat.genre}}</p>
-            <p style="color: white; line-height: 20px">{{chat.day}} at {{chat.time}}</p>
-            <p style="color: white; line-height: 20px">{{chat.description}}</p>
-          </ion-item>
-        </div>
-      </ion-list>
-	</ion-content>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-view>
