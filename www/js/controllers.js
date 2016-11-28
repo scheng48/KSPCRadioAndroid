@@ -60,7 +60,12 @@ angular.module('starter.controllers', ['ngCordova'])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('DirectoryCtrl', function($scope, DirectoryService) {
+.controller('DirectoryCtrl', function($scope, Days) {
+  $scope.days = Days.all();
+})
+
+
+.controller('DirectoryDetailCtrl', function($scope, DirectoryService) {
 
   DirectoryService.getAllShows().then(function(shows) {
     $scope.shows = shows.sort(compareTime);

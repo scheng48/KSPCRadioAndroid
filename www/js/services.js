@@ -1,5 +1,47 @@
 angular.module('starter.services', [])
 
+.factory('Days', function() {
+  var days = [{
+    id: 0,
+    DOW: 'Sunday'
+  }, {
+    id: 1,
+    DOW: 'Monday'
+  }, {
+    id: 2,
+    DOW: 'Tuesday'
+  }, {
+    id: 3,
+    DOW: 'Wednesday'
+  }, {
+    id: 4,
+    DOW: 'Thursday'
+  }, {
+    id: 5,
+    DOW: 'Friday'
+  }, {
+    id: 6,
+    DOW: 'Saturday'
+  }];
+
+  return {
+    all: function() {
+      return days;
+    },
+    remove: function(day) {
+      days.splice(days.indexOf(day), 1);
+    },
+    get: function(dayId) {
+      for (var i = 0; i < days.length; i++) {
+        if (days[i].id === parseInt(dayId)) {
+          return days[i];
+        }
+      }
+      return null;
+    }
+  };
+})
+
 .factory('DirectoryService', ['$q', DirectoryService]);
 
 function DirectoryService($q) {

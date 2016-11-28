@@ -84,22 +84,22 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       }
     })
 
-  .state('tab.chats', {
-    url: '/chats',
-    views: {
-      'tab-chats': {
-        templateUrl: 'templates/tab-chats.html',
-        controller: 'ChatsCtrl'
-      }
-    }
-  })
-
-  .state('tab.directory ', {
+  .state('tab.directory', {
     url: '/directory',
     views: {
       'tab-directory': {
         templateUrl: 'templates/tab-directory.html',
         controller: 'DirectoryCtrl'
+      }
+    }
+  })
+
+  .state('tab.directory-detail', {
+    url: '/directory/:dayId',
+    views: {
+      'tab-directory': {
+        templateUrl: 'templates/directory-detail.html',
+        controller: 'DirectoryDetailCtrl'
       }
     }
   })
