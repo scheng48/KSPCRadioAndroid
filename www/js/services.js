@@ -50,7 +50,7 @@ function DirectoryService($q) {
 
   return {
     initDB: initDB,
-    getAllShows: getAllShows,
+    getDaySchedule: getDaySchedule,
     addShow: addShow,
     updateShow: updateShow,
     deleteShow: deleteShow
@@ -73,9 +73,14 @@ function DirectoryService($q) {
     return $q.when(_db.remove(show));
   };
 
-  function getAllShows() {
+  function getDaySchedule(day) {
     if (!_shows) {
-      return $q.when(_db.allDocs({include_docs: true})).then(function(docs) {
+      return $q.when(_db.query(function(doc) {
+        emit(doc.day)
+      }, {
+        key: parseInt(day),
+        include_docs: true
+      })).then(function(docs) {
 
         _shows = docs.rows
 
