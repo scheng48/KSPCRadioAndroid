@@ -12,6 +12,7 @@
 
 .stream-info {
 	padding-top: 10px;
+	position: relative;
 }
 
 .album-info {
@@ -27,6 +28,14 @@
 
 .album-info h1,h2,h3,h4,h5,p{
 	color: white;
+}
+
+.album-art {
+	width: 100%;
+}
+
+.kspc-link {
+	background-color: rgba(100,100,100, 0.5);
 }
 
 .radio-player {

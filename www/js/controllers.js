@@ -14,6 +14,11 @@ ionicApp.controller('DashCtrl', function($scope) {
 
     $scope.init = function() {
         callSpinPapi();
+        document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-pause" style="color: white"></i>';
+    }
+
+    $scope.openKSPC = function() {
+       window.open('http://kspc.org/', '_system', 'location=yes');
     }
 })
 
