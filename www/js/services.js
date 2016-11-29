@@ -74,25 +74,22 @@ function DirectoryService($q) {
   };
 
   function getDaySchedule(day) {
-    if (!_shows) {
-      return $q.when(_db.query(function(doc) {
-        emit(doc.day)
-      }, {
-        key: parseInt(day),
-        include_docs: true
-      })).then(function(docs) {
+    return $q.when(_db.query(function(doc) {
+      emit(doc.day)
+    }, {
+      key: parseInt(day),
+      include_docs: true
+    })).then(function(docs) {
 
-        _shows = docs.rows
+      _shows = docs.rows
+      console.log(day);
 
-        // Listen for changes on the database
-        _db.changes({live:true, since: 'now', include_docs: true})
-          .on('change', onDatabaseChange);
+      // Listen for changes on the database
+      _db.changes({live:true, since: 'now', include_docs: true})
+      .on('change', onDatabaseChange);
 
-        return _shows;
-      });
-    } else {
-      return $q.when(_shows);
-    }
+      return _shows;
+    });
   };
 
   function onDatabaseChange(change) {
