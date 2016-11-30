@@ -74,15 +74,14 @@ function DirectoryService($q) {
   };
 
   function getDaySchedule(day) {
-    return $q.when(_db.query(function(doc) {
-      emit(doc.day)
-    }, {
-      key: parseInt(day),
+    return $q.when(_db.allDocs({
+      startkey: day.DOW + '0',
+      endkey: day.DOW + '99',
       include_docs: true
     })).then(function(docs) {
 
       _shows = docs.rows
-      console.log(day);
+      console.log(day.DOW);
 
       // Listen for changes on the database
       _db.changes({live:true, since: 'now', include_docs: true})

@@ -68,18 +68,18 @@ angular.module('starter.controllers', ['ngCordova'])
 .controller('DirectoryDetailCtrl', function($scope, $stateParams, Days, DirectoryService) {
   $scope.day = Days.get($stateParams.dayId);
 
-  DirectoryService.getDaySchedule($stateParams.dayId).then(function(shows) {
+  DirectoryService.getDaySchedule($scope.day).then(function(shows) {
     $scope.shows = shows.sort(compareTime);
     console.log($scope.shows);
   });
 
-  // storeDaySchedule(DirectoryService, 0);
-  // storeDaySchedule(DirectoryService, 1);
-  // storeDaySchedule(DirectoryService, 2);
-  // storeDaySchedule(DirectoryService, 3);
-  // storeDaySchedule(DirectoryService, 4);
-  // storeDaySchedule(DirectoryService, 5);
-  // storeDaySchedule(DirectoryService, 6);
+  // storeDaySchedule(DirectoryService, Days.get(0));
+  // storeDaySchedule(DirectoryService, Days.get(1));
+  // storeDaySchedule(DirectoryService, Days.get(2));
+  // storeDaySchedule(DirectoryService, Days.get(3));
+  // storeDaySchedule(DirectoryService, Days.get(4));
+  // storeDaySchedule(DirectoryService, Days.get(5));
+  // storeDaySchedule(DirectoryService, Days.get(6));
 
   //https://forum.ionicframework.com/t/accordion-list/2832/4
   $scope.toggleGroup = function(group) {
