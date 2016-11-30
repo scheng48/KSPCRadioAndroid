@@ -14,15 +14,11 @@ angular.module('starter.controllers', ['ngCordova'])
 
   $scope.init = function() {
     callSpinPapi();
-    // DirectoryService.addShow(
-    //   {"showName": "test name3",
-    //   "DJName": "test DJ3",
-    //   "showCategory": "test category3",
-    //   "day": "test day3",
-    //   "onAirTime": "05:00:00",
-    //   "offAirTime": "07:00:00",
-    //   "showDescription": "test description3"}
-    // );
+    document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-pause" style="color: white"></i>';
+  }
+
+  $scope.openKSPC = function() {
+    window.open('http://kspc.org/', '_system', 'location=yes');
   }
 })
 
@@ -72,14 +68,6 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.shows = shows.sort(compareTime);
     console.log($scope.shows);
   });
-
-  // storeDaySchedule(DirectoryService, Days.get(0));
-  // storeDaySchedule(DirectoryService, Days.get(1));
-  // storeDaySchedule(DirectoryService, Days.get(2));
-  // storeDaySchedule(DirectoryService, Days.get(3));
-  // storeDaySchedule(DirectoryService, Days.get(4));
-  // storeDaySchedule(DirectoryService, Days.get(5));
-  // storeDaySchedule(DirectoryService, Days.get(6));
 
   //https://forum.ionicframework.com/t/accordion-list/2832/4
   $scope.toggleGroup = function(group) {

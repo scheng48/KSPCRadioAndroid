@@ -2,12 +2,15 @@
   <ion-content class="background">
   <div data-ng-controller="DashCtrl" data-ng-init="init()">
       <div class="stream-info centered">
-        <div style ="text-align:center"><img src = "img/albumCover.jpg" class="album-art"></div>
+        <div style ="text-align:center">
+          <img src = "img/albumCover-2.jpg" class="album-art"/>
+          <p ng-click="openKSPC()" class="kspc-link">Visit KSPC.org for news about our latest events!</p>
+        </div>
         <!-- Album info-->
         <div class="album-info">
-          <h1 id="titleNow"></h1>
-          <h3 id="artistNow"></h3>
-          <h3 id="albumNow"></h3>
+          <h2 id="titleNow"></h2>
+          <h4 id="artistNow"></h4>
+          <h5 id="albumNow"></h5>
           <h4 id="DJNameNow"></h4>
         </div>
       </div>
@@ -16,7 +19,7 @@
           <audio autoplay id="livestream">
             <source src="http://37.187.79.93:8419/stream192" type="audio/mpeg"/>
           </audio>
-          <button ng-click="playPause()" id="play-pause" class="playPause"><i class="icon ion ion-pause" style="color: white"></i></button>
+          <button ng-click="playPause()" id="play-pause" class="playPause"></button>
           <!-- <div>
             <a class="button icon-left ion-mic-c button-clear button-dark" href="#/djprofile/djprofile-detail">DJ Profile</a>
           </div> -->
@@ -28,7 +31,7 @@
             <button class="button social-button" ng-click="openFacebook()" style="background-color: #3b5998;"><i class="icon ion ion-social-facebook" style="color: white"></i></button>
             <button class="button social-button" href="#" ng-click="openTwitter()"><i class="icon ion ion-social-twitter" style="color: #4099ff"></i></button>
             <button class="button instagram-button social-button" ng-click="openInsta()"><i class="icon ion ion-social-instagram" style="color: white"></i></button>
-            <button class="button button-right" href="#" onclick="window.open('http://spinitron.com/radio/playlist.php?station=kspc#main', '_system', 'location=yes'); return false;"><i class="icon ion ion-chatbubbles"></i> Chat with our DJ</button>
+            <button class="button button-right" href="#" onclick="window.open('http://spinitron.com/radio/playlist.php?station=kspc#main', '_system', 'location=yes'); return false;"><i class="icon ion ion-chatbubbles"></i> DJ Chat</button>
           </div>
         </div>
       </div>
