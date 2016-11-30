@@ -22,7 +22,6 @@ echo 'export PATH=~/.npm-global/bin:$PATH' >> /home/ubuntu/.profile
 source ~/.profile
 npm install -g cordova ionic
 ```
-8. Done!
 
 # Use
 1. From now on, anytime you want to use the environment just type
