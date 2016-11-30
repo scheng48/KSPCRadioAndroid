@@ -51,9 +51,10 @@ function DirectoryService($q) {
   return {
     initDB: initDB,
     getDaySchedule: getDaySchedule,
+    getLastUpdated: getLastUpdated,
     addShow: addShow,
     updateShow: updateShow,
-    deleteShow: deleteShow
+    destroyDB: destroyDB
   };
 
   function initDB() {
@@ -69,8 +70,8 @@ function DirectoryService($q) {
     return $q.when(_db.put(show));
   };
 
-  function deleteShow(show) {
-    return $q.when(_db.remove(show));
+  function destroyDB() {
+    return $q.when(_db.destroy());
   };
 
   function getDaySchedule(day) {
@@ -79,15 +80,19 @@ function DirectoryService($q) {
       endkey: day.DOW + '99',
       include_docs: true
     })).then(function(docs) {
-
       _shows = docs.rows
-      console.log(day.DOW);
 
       // Listen for changes on the database
       _db.changes({live:true, since: 'now', include_docs: true})
       .on('change', onDatabaseChange);
 
       return _shows;
+    });
+  };
+
+  function getLastUpdated() {
+    return $q.when(_db.get('lastUpdated')).then(function(doc) {
+      return doc.updatedAt;
     });
   };
 

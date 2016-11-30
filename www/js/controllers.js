@@ -89,6 +89,7 @@ angular.module('starter.controllers', ['ngCordova'])
       $scope.shownGroup = group;
     }
   };
+
   $scope.isGroupShown = function(group) {
     return $scope.shownGroup === group;
   };

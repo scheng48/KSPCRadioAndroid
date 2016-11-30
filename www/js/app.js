@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform, DirectoryService) {
+.run(function($ionicPlatform, Days, DirectoryService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -22,6 +22,21 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     }
 
     DirectoryService.initDB();
+
+    DirectoryService.getLastUpdated().then(function(updatedAt) {
+
+      if (shouldUpdate(updatedAt)) {
+        console.log("Updating...");
+        updateDaySchedule(DirectoryService, Days.all());
+      }
+    }).catch(function(err) {
+      console.log("Storing...");
+      var days = Days.all();
+      for (var i = 0; i < days.length; i++) {
+        storeDaySchedule(DirectoryService, days[i]);
+      }
+    });
+
   });
 })
 
