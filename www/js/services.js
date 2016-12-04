@@ -55,6 +55,7 @@ function DirectoryService($q) {
     getFavorites: getFavorites,
     addShow: addShow,
     updateShow: updateShow,
+    deleteShow: deleteShow,
     destroyDB: destroyDB
   };
 
@@ -69,6 +70,10 @@ function DirectoryService($q) {
 
   function updateShow(show) {
     return $q.when(_db.put(show));
+  };
+
+  function deleteShow(show) {
+    return $q.when(_db.remove(show));
   };
 
   function destroyDB() {
