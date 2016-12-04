@@ -17,6 +17,14 @@ angular.module('starter.controllers', ['ngCordova'])
     document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-pause" style="color: white"></i>';
   }
 
+  $scope.favorite = function() {
+    var favoriteDJ = {
+      DJName: DJNameNow
+    };
+    favoriteDJ._id = 'favoriteDJ-' + favoriteDJ.DJName;
+    DirectoryService.addShow(favoriteDJ);
+  }
+
   $scope.openKSPC = function() {
     window.open('http://kspc.org/', '_system', 'location=yes');
   }
