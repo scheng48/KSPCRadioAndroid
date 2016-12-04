@@ -91,7 +91,12 @@ angular.module('starter.controllers', ['ngCordova'])
   };
 })
 
-.controller('FavoritesCtrl', function($scope) {})
+.controller('FavoritesCtrl', function($scope, DirectoryService) {
+  DirectoryService.getFavorites().then(function(favorites) {
+    $scope.favorites = favorites;
+    console.log($scope.favorites);
+  });
+})
 
 .controller('SocialMedia', function($scope, $cordovaAppAvailability) {
 

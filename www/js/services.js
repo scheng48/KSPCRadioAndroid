@@ -52,6 +52,7 @@ function DirectoryService($q) {
     initDB: initDB,
     getDaySchedule: getDaySchedule,
     getLastUpdated: getLastUpdated,
+    getFavorites: getFavorites,
     addShow: addShow,
     updateShow: updateShow,
     destroyDB: destroyDB
@@ -93,6 +94,22 @@ function DirectoryService($q) {
   function getLastUpdated() {
     return $q.when(_db.get('lastUpdated')).then(function(doc) {
       return doc.updatedAt;
+    });
+  };
+
+  function getFavorites() {
+    return $q.when(_db.allDocs({
+      startkey: 'favoriteDJ',
+      endkey: 'favoriteDJ\uffff',
+      include_docs: true
+    })).then(function(docs) {
+      _shows = docs.rows
+
+      // Listen for changes on the database
+      _db.changes({live:true, since: 'now', include_docs: true})
+      .on('change', onDatabaseChange);
+
+      return _shows;
     });
   };
 
