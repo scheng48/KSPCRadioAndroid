@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ngCordova'])
+angular.module('starter.controllers', ['ionic.cloud', 'ngCordova'])
 
 .controller('DashCtrl', function($scope, DirectoryService) {
   $scope.livestream = document.getElementById("livestream");
