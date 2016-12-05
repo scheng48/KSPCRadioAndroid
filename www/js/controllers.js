@@ -17,13 +17,6 @@ angular.module('starter.controllers', ['ngCordova'])
     document.getElementById("play-pause").innerHTML = '<i class="icon icon ion-pause" style="color: white"></i>';
   }
 
-  $scope.favorite = function() {
-    var favoriteDJ = {
-      DJName: DJNameNow
-    };
-    favoriteDJ._id = 'favoriteDJ-' + favoriteDJ.DJName;
-    DirectoryService.addShow(favoriteDJ);
-  }
 
   $scope.openKSPC = function() {
     window.open('http://kspc.org/', '_system', 'location=yes');
@@ -64,6 +57,37 @@ angular.module('starter.controllers', ['ngCordova'])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('FavoriteCtrl', function($scope, DirectoryService) {
+  $scope.addFavorite = function() {
+    var favoriteDJ = {
+      DJName: DJNameNow
+    };
+    favoriteDJ._id = 'favoriteDJ-' + favoriteDJ.DJName;
+    DirectoryService.addShow(favoriteDJ);
+ }
+
+  $scope.favorited = true;
+  document.getElementById("heart").innerHTML = '<i class="icon ion-ios-heart-outline" style="color: white"></i>';
+  $scope.favorite = function() {
+    console.log($scope.favorited);
+    if($scope.favorited == false) {
+      document.getElementById("heart").innerHTML = '<i class="icon ion-ios-heart-outline" style="color: white"></i>';
+      $scope.favorited = true;
+    } else {
+      document.getElementById("heart").innerHTML = '<i class="icon ion-ios-heart" style="color: black"></i>';
+      $scope.favorited = false;
+      console.log("adding favorite...")
+      storeFavorite(DirectoryService);
+    }
+  }
+
+  DirectoryService.getFavorites().then(function(favorites) {
+    $scope.favorites = favorites;
+    console.log($scope.favorites);
+  });
+
+})
+
 .controller('DirectoryCtrl', function($scope, Days) {
   $scope.days = Days.all();
 })
@@ -89,13 +113,6 @@ angular.module('starter.controllers', ['ngCordova'])
   $scope.isGroupShown = function(group) {
     return $scope.shownGroup === group;
   };
-})
-
-.controller('FavoritesCtrl', function($scope, DirectoryService) {
-  DirectoryService.getFavorites().then(function(favorites) {
-    $scope.favorites = favorites;
-    console.log($scope.favorites);
-  });
 })
 
 .controller('SocialMedia', function($scope, $cordovaAppAvailability) {

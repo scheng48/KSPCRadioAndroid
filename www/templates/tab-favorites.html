@@ -1,7 +1,12 @@
 <ion-view view-title="Favorite">
-  <ion-content>
-    <ion-list>
-    	<p>DJ Funky Android</p>
-    </ion-list>
-  </ion-content>
+  	<ion-content>
+	 	<ion-list>
+	        <div ng-repeat="favorite in favorites">
+	          	<ion-item class="item-stable" ng-class="{active: isGroupShown(show)}">
+	            	<h2 style="color: black">{{favorite.doc.DJName}}</h2>
+	          	</ion-item>
+	        </div>
+	    </ion-list>
+  	</ion-content>
 </ion-view>
+

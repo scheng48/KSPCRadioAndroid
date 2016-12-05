@@ -124,7 +124,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     views: {
       'tab-favorites': {
         templateUrl: 'templates/tab-favorites.html',
-        controller: 'FavoritesCtrl'
+        controller: 'FavoriteCtrl'
       }
     }
   });
