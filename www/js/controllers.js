@@ -77,7 +77,7 @@ angular.module('starter.controllers', ['ngCordova'])
       document.getElementById("heart").innerHTML = '<i class="icon ion-ios-heart" style="color: black"></i>';
       $scope.favorited = false;
       console.log("adding favorite...")
-      storeFavorite(DirectoryService);
+      $scope.addFavorite();
     }
   }
 
