@@ -127,7 +127,7 @@ function DirectoryService($q) {
         _shows.splice(index, 1);
       }
     } else {
-      if (shows && show._id == change.id) {
+      if (show && show._id == change.id) {
         _shows[index] = change.doc;
       } else {
         _shows.splice(index, 0, change.doc);
