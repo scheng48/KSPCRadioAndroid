@@ -3,12 +3,12 @@
 		<ion-list>
         <div ng-repeat="show in shows">
           <ion-item class="item-stable" style="background-color: rgb(50,50,50)"  ng-class="{active: isGroupShown(show)}">
-            <h2>{{show.doc.showName}}</h2>
+            <h2>DJ: {{show.doc.DJName}}</h2>
           </ion-item>
           <ion-item class="item-accordion playlist-item item-text-wrap" ng-show="isGroupShown(group)">
-            <p style="color: black; line-height: 20px">{{show.doc.DJName}}</p>
-            <p style="color: black; line-height: 20px">{{show.doc.showCategory}}</p>
-            <p style="color: black; line-height: 20px">{{show.doc.onAirTime}} to {{show.doc.offAirTime}}</p>
+            <p style="color: black; line-height: 20px">Show: {{show.doc.showName}}</p>
+            <p style="color: black; line-height: 20px">Category: {{show.doc.showCategory}}</p>
+            <p style="color: black; line-height: 20px">Time On Air: {{show.doc.onAirTime}} to {{show.doc.offAirTime}}</p>
             <p style="color: black; line-height: 20px">{{show.doc.showDescription}}</p>
           </ion-item>
         </div>
